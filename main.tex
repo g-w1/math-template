@@ -1,10 +1,13 @@
-\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
-\usepackage{amsfonts}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage[margin=1in]{geometry}
+\documentclass[11pt,letter]{article}
+\usepackage{amssymb,amsmath,mathabx, amscd}
+\usepackage[pdftex]{graphicx}
+\usepackage{enumerate}
+\usepackage{tikz, tikz-cd}
+\usepackage[margin=.8in]{geometry}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{mathrsfs, colonequals}
+
 
 \newcommand{\A}[0]{\mathbf{a}}
 \newcommand{\B}[0]{\mathbf{b}}
@@ -26,6 +29,13 @@
 \newcommand{\qq}{\mathbb{Q}}
 \newcommand{\rr}{\mathbb{R}}
 \newcommand{\zz}{\mathbb{Z}}
+
+\renewcommand{\P}{\mathcal{P}}
+
+
+
+\renewcommand{\gg}{\mathbb{G}}
+\newcommand{\M}{\mathcal M}
 
 \renewcommand{\P}{\mathcal{P}}
 
@@ -56,17 +66,174 @@
 \newcommand{\defi}[1]{{\color{violet}\textsf{#1}}} 
 
 
-\newcommand{\seq}[2]{\{#1\}_{i=1}^{#2}}
+\usepackage{amsmath,amsfonts,amscd,latexsym,graphicx,hyperref,color}
 
-\title{PSET}
-\date{}
 
+%\textheight232mm
+%\textwidth170mm
+
+%\addtolength{\topmargin}{-25mm}
+%\addtolength{\oddsidemargin}{-20mm}
+
+% Mathbf letters
+\newcommand{\G}{\mathbb{G}}
+\renewcommand{\H}{\mathbb{H}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Qbar}{{\overline{\Q}}}
+\newcommand{\Zhat}{{\hat{\Z}}}
+\newcommand{\Zbar}{{\overline{\Z}}}
+\newcommand{\kbar}{{\overline{k}}}
+\newcommand{\Kbar}{{\overline{K}}}
+\newcommand{\ksep}{{k^{\operatorname{sep}}}}
+\newcommand{\Mbar}{{\overline{M}}}
+\newcommand{\Fbar}{{\overline{\F}}}
+
+
+
+% mathcal characters
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calI}{\mathcal{I}}
+\newcommand{\calJ}{\mathcal{J}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calO}{\mathcal{O}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calQ}{\mathcal{Q}}
+\newcommand{\calR}{\mathcal{R}}
+\newcommand{\calS}{\mathcal{S}}
+\newcommand{\calT}{\mathcal{T}}
+\newcommand{\calU}{\mathcal{U}}
+\newcommand{\calV}{\mathcal{V}}
+\newcommand{\calW}{\mathcal{W}}
+\newcommand{\calX}{\mathcal{X}}
+\newcommand{\calY}{\mathcal{Y}}
+\newcommand{\calZ}{\mathcal{Z}}
+
+\newcommand{\FF}{\mathscr{F}}
+\newcommand{\GG}{\mathscr{G}}
+\newcommand{\II}{\mathscr{I}}
+\newcommand{\JJ}{\mathscr{J}}
+\newcommand{\LL}{\mathscr{L}}
+\newcommand{\OO}{\mathscr{O}}
+\newcommand{\XX}{\mathscr{X}}
+\newcommand{\ZZ}{\mathscr{Z}}
+
+% Math operators
+\DeclareMathOperator{\AJ}{AJ}
+\DeclareMathOperator{\Ann}{Ann}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\cd}{cd}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Cor}{Cor}
+\DeclareMathOperator{\divv}{div}
+\DeclareMathOperator{\Div}{Div}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Frac}{Frac}
+\DeclareMathOperator{\Frob}{Frob}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\inv}{inv}
+\DeclareMathOperator{\Jac}{Jac}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\nil}{nil}
+\DeclareMathOperator{\Norm}{Norm}
+\DeclareMathOperator{\Num}{Num}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\Prob}{Prob}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\scd}{scd}
+\DeclareMathOperator{\Sel}{Sel}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\trdeg}{tr deg}
+
+% Categories
+\newcommand{\Ab}{\operatorname{\textbf{Ab}}}
+\newcommand{\Groups}{\operatorname{\textbf{Groups}}}
+\newcommand{\Schemes}{\operatorname{\textbf{Schemes}}}
+\newcommand{\Sets}{\operatorname{\textbf{Sets}}}
+
+% Text subscripts, superscripts
+\newcommand{\ab}{{\operatorname{ab}}}
+\newcommand{\an}{{\operatorname{an}}}
+\newcommand{\et}{{\operatorname{\'et}}}
+\newcommand{\op}{{\operatorname{op}}}
+\newcommand{\perf}{{\operatorname{perf}}}
+\newcommand{\red}{{\operatorname{red}}}
+\newcommand{\res}{{\operatorname{res}}}
+\newcommand{\sing}{{\operatorname{sing}}}
+\newcommand{\smooth}{{\operatorname{smooth}}}
+\newcommand{\tors}{{\operatorname{tors}}}
+\newcommand{\unr}{{\operatorname{unr}}}
+\newcommand{\Zar}{{\operatorname{Zar}}}
+\newcommand{\Cech}{\v{C}ech}
+\newcommand{\GalQ}{{\Gal}(\Qbar/\Q)}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\del}{\partial}
+\newcommand{\directsum}{\oplus} % binary direct sum
+\newcommand{\Directsum}{\bigoplus} % direct sum of a collection
+\newcommand{\injects}{\hookrightarrow}
+\newcommand{\intersect}{\cap} % binary intersection
+\newcommand{\Intersection}{\bigcap} % intersection of a collection
+\newcommand{\isom}{\simeq}
+\newcommand{\notdiv}{\nmid}
+\newcommand{\surjects}{\twoheadrightarrow}
+\newcommand{\tensor}{\otimes} % binary tensor product
+\newcommand{\Tensor}{\bigotimes} % tensor product of a collection
+\newcommand{\union}{\cup} % binary union
+\newcommand{\Union}{\bigcup} % union of a collection
+\newcommand{\isomto}{\overset{\sim}{\rightarrow}}
+\newcommand{\isomfrom}{\overset{\sim}{\leftarrow}}
+\newcommand{\leftexp}[2]{{\vphantom{#2}}^{#1}{#2}}
+\newcommand{\sigmaiota}{{\leftexp{\sigma}{\iota}}}
+\newcommand{\sigmaphi}{{\leftexp{\sigma}{\phi}}}
+\newcommand{\sigmatauphi}{{\leftexp{\sigma\tau}{\phi}}}
+\newcommand{\tauphi}{{\leftexp{\tau}{\phi}}}
+
+\renewcommand{\angle}[1]{\hspace{-2pt}\left\langle #1 \right\rangle}
 
 \begin{document}
-\maketitle
+
+\thispagestyle{empty}
+
+\noindent {\bf MATHXXXX Problem Set X}\\
 
 \begin{enumerate}
-	\item
+
 \end{enumerate}
+
 
 \end{document}
